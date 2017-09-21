@@ -8,8 +8,9 @@ namespace CustomList
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-        }
+        //List start = new List();
+        //start.CustomList();
     }
 }
+
+   
