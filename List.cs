@@ -11,7 +11,7 @@ namespace CustomList
         {
             T[] items;
 
-            public void Add(T itemToAdd)
+            public void Add(T itemToAdd) //to increase count, take the current array and create a new array (first array+ new addition) with bigger capacity???
             {
                 items[0] = itemToAdd; //will set later to find the last item in list and add new item after that
                                       //return items[0];
@@ -21,7 +21,7 @@ namespace CustomList
 
 
 
-            //Capacity
+            //Capacity - to increase capacity, take the current array and create a new array (first array+ new addition/capacity) with bigger capacity???
             //Numbers.Capacity = 1000];
             //int num = 1;
             //for (int i = 0; i < 1001; i++)
