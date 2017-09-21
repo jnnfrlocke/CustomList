@@ -14,11 +14,22 @@ namespace CustomList
             public void Add(T itemToAdd)
             {
                 items[0] = itemToAdd; //will set later to find the last item in list and add new item after that
-                //return items[0];
+                                      //return items[0];
 
 
-                //TODO:add indexer
-            }
+            //TODO:add indexer
+
+
+
+            //Capacity
+            //Numbers.Capacity = 1000];
+            //int num = 1;
+            //for (int i = 0; i < 1001; i++)
+            //{
+            //    numbers.add(num);
+            //    num++;
+            //}
+        }
        
         }
 
