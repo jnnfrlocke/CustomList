@@ -22,7 +22,7 @@ namespace CustomList
 
             if (count >= capacity) //Just because I can't imagine a way count could be bigger than capacity doesn't mean I shouldn't account for the possibility
             {
-                capacity = capacity * 2;
+                IncreaseCapacity(capacity);
             }
 
             for (int i = 0; i < count; i++)
@@ -34,6 +34,16 @@ namespace CustomList
             count++;
             addingArray[count - 1] = itemToAdd;
             items = addingArray;
+        }
+
+        public void IncreaseCapacity(int capacity)
+        {
+            capacity = capacity * 2;
+        }
+
+        public void Remove(T itemToRemove)
+        {
+            
         }
 
        
