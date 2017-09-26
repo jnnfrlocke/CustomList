@@ -6,20 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace CustomList
-{
-    public class NewList : IEnumerable
-    {
+//namespace CustomList
+//{
+    //public class NewList : IEnumerable
+    //{
         //Iterator
-        public CustomList<int> newList = new CustomList<int>();
+        //public CustomList<int> newList = new CustomList<int>();
 
-        public IEnumerator GetEnumerator()
-        {
-                for (int index = 0; index < newList.Length; index++)
-                {
-                    yield return newList[index];
-                }
-        }
+        //public IEnumerator GetEnumerator()
+        //{
+        //        for (int index = 0; index < newList.Length; index++)
+        //        {
+        //            yield return newList[index];
+        //        }
+        //}
 
         //IEnumerator IEnumerable.GetEnumerator()
         //{
@@ -35,5 +35,6 @@ namespace CustomList
 
        
             
-    }
-}
+//    }
+//}
+//}}

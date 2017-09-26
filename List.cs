@@ -8,21 +8,21 @@ using System.Threading.Tasks;
 namespace CustomList 
 {
     
-        public class CustomList<T> : IEnumerable<T>
-    {
+        //public class CustomList<T> : IEnumerable<T>
+    //{
             //T[] items;
 
-            public int index = 0;
+            //public int index = 0;
 
-        IEnumerator GetEnumerator();
+        //IEnumerator GetEnumerator();
 
-        public int Add(T itemToAdd) //to increase count, take the current array and create a new array (first array+ new addition) with bigger capacity???
-        {
-            for (int index = 0; index < this.Length; index++)
-            {
-                if (index[] == null)
-                    itemToAdd = this.index + 1;
-            }
+        //public int Add(T itemToAdd) //to increase count, take the current array and create a new array (first array+ new addition) with bigger capacity???
+        //{
+        //    for (int index = 0; index < this.Length; index++)
+        //    {
+        //        if (index[] == null)
+        //            itemToAdd = this.index + 1;
+        //    }
 
 
 
@@ -64,16 +64,16 @@ namespace CustomList
 
         }
 
-        IEnumerator IEnumerable<T>.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+        //IEnumerator IEnumerable<T>.GetEnumerator()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
 
         //Use ARRAYS (temp)
 
 
-    }
+    //}
 
-    }
+    //}
 
