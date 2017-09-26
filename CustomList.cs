@@ -11,14 +11,16 @@ namespace CustomList
     {
         int capacity;
         int count;
-        
+        T[] items;
+        T[] addingArray;
+
         public void Add(T itemToAdd)
         {
             capacity = 4;
             count = 0;
 
-            T[] items = new T[capacity];
-            T[] addingArray = new T[capacity];
+            items = new T[capacity];
+            addingArray = new T[capacity];
 
             if (count >= capacity) //Just because I can't imagine a way count could be bigger than capacity doesn't mean I shouldn't account for the possibility
             {
@@ -41,10 +43,22 @@ namespace CustomList
             capacity = capacity * 2;
         }
 
-        public void Remove(T itemToRemove)
+        public bool Remove(T itemToRemove)
         {
-            
+            bool removed = false;
+
+            for (int i = 0; i < count; i++)
+            {
+                if (items[i].Equals(itemToRemove))
+                {
+                    items[i] = items[i + 1];
+                    removed = true;
+                }
+            }
+            return removed;
         }
+
+
 
        
 
