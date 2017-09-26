@@ -10,16 +10,30 @@ namespace CustomList
     public class CustomList<T> : IEnumerable<T>
     {
         public int capacity;
-        int count;
+        public int count = 0;
         T[] items;
 
-        public void Add(T itemToAdd)
+        public int Count
+        {
+            get { return count; }
+        }
+
+        // Indexer
+        public T this[int i]
+        {
+            get { return items[i]; }
+            set { items[i] = value; }
+        }
+
+        public T[] Add(T itemToAdd)
         {
             capacity = 4;
-            count = 0;
-
+            //count = 0;
+            
             items = new T[capacity];
             T[] addingArray = new T[capacity];
+
+
 
             if (count >= capacity) //Just because I can't imagine a way count could be bigger than capacity doesn't mean I shouldn't account for the possibility
             {
@@ -35,7 +49,15 @@ namespace CustomList
             count++;
             addingArray[count - 1] = itemToAdd;
             items = addingArray;
+            return items;
         }
+
+            //public T CustomList this[int index]
+
+
+        
+
+        
 
         public void IncreaseCapacity(int capacity)
         {
@@ -112,17 +134,20 @@ namespace CustomList
             }
          }
 
-
+        
+        
 
 
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+
+                throw new IndexOutOfRangeException();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
+
             throw new NotImplementedException();
         }
     }
