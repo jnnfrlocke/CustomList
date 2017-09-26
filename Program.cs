@@ -8,7 +8,7 @@ namespace CustomList
 {
     class Program
     {
-        //List start = new List();
+        //CustomList[] start = new CustomList();
         //start.CustomList();
     }
 }
