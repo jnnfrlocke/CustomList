@@ -1,0 +1,9 @@
+c:\users\jnnfr\documents\visual studio 2015\Projects\Tests\bin\Debug\Tests.dll
+c:\users\jnnfr\documents\visual studio 2015\Projects\Tests\bin\Debug\Tests.pdb
+c:\users\jnnfr\documents\visual studio 2015\Projects\Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+c:\users\jnnfr\documents\visual studio 2015\Projects\Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+c:\users\jnnfr\documents\visual studio 2015\Projects\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
+c:\users\jnnfr\documents\visual studio 2015\Projects\Tests\obj\Debug\Tests.dll
+c:\users\jnnfr\documents\visual studio 2015\Projects\Tests\obj\Debug\Tests.pdb
+c:\users\jnnfr\documents\visual studio 2015\Projects\Tests\bin\Debug\CustomList.exe
+c:\users\jnnfr\documents\visual studio 2015\Projects\Tests\bin\Debug\CustomList.pdb

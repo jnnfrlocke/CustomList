@@ -25,15 +25,13 @@ namespace CustomList
             set { items[i] = value; }
         }
 
-        public T[] Add(T itemToAdd)
+        public T[] Add(T itemToAdd) //This works for adding one number to an empty array, need to make it work for multiple (overload?)
         {
             capacity = 4;
             //count = 0;
             
             items = new T[capacity];
             T[] addingArray = new T[capacity];
-
-
 
             if (count >= capacity) //Just because I can't imagine a way count could be bigger than capacity doesn't mean I shouldn't account for the possibility
             {
