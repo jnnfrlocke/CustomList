@@ -11,20 +11,17 @@ namespace CustomList
     {
         public int capacity;
         public int count = 0;
+        //Store Values in Array
         T[] items;
-
-        public int Count
-        {
-            get { return count; }
-        }
-
-        // Indexer
+        
+        // Indexer //public T CustomList this[int index]
         public T this[int i]
         {
             get { return items[i]; }
             set { items[i] = value; }
         }
 
+        //Add
         public T[] Add(T itemToAdd) //This works for adding one number to an empty array, need to make it work for multiple (overload?)
         {
             capacity = 4;
@@ -50,18 +47,13 @@ namespace CustomList
             return items;
         }
 
-            //public T CustomList this[int index]
-
-
-        
-
-        
-
+        //Increase capacity
         public void IncreaseCapacity(int capacity)
         {
             capacity = capacity * 2;
         }
 
+        //Remove
         public bool Remove(T itemToRemove)
         {
             bool removed = false;
@@ -77,10 +69,13 @@ namespace CustomList
             return removed;
         }
 
+        //Iterable
+
+        //To String
         public override string ToString() // TODO: need arguments/parameters
         {
             string result = items[0].ToString();
-            
+
             for (int i = 1; i < count; i++)
             {
                 result = result + " " + items[i].ToString();
@@ -88,6 +83,7 @@ namespace CustomList
             return result;
         }
 
+        //Overload++
         public static CustomList<T> operator +(CustomList<T> list1, CustomList<T> list2) //Overload plus operator
         {
             if (list1 != null && list2 != null)
@@ -100,6 +96,7 @@ namespace CustomList
             return list1;
         }
 
+        //Overload--
         public static CustomList<T> operator -(CustomList<T> list1, CustomList<T> list2) //Overload minus operator
         {
             if (list1 != null && list2 != null)
@@ -112,6 +109,13 @@ namespace CustomList
             return list1;
         }
 
+        //Count
+        public int Count
+        {
+            get { return count; }
+        }
+
+        //Zipper
         public void Zipper(CustomList<T> list1, CustomList<T> list2)
         {
             if (list1.count <= list2.count)
@@ -130,13 +134,8 @@ namespace CustomList
                     list2.Add(list2.ElementAt(i));
                 }
             }
-         }
-
+        }
         
-        
-
-
-
         public IEnumerator<T> GetEnumerator()
         {
 
