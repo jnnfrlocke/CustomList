@@ -9,10 +9,15 @@ namespace CustomList
 {
     public class CustomList<T> : IEnumerable<T>
     {
-        public int capacity;
-        public int count = 0;
-        //Store Values in Array
+        private int capacity;
+        public int count;
         T[] items;
+
+        //Count
+        public int Count
+        {
+            get { return count; }
+        }
         
         // Indexer //public T CustomList this[int index]
         public T this[int i]
@@ -21,37 +26,69 @@ namespace CustomList
             set { items[i] = value; }
         }
 
-        //Add
-        public T[] Add(T itemToAdd) //This works for adding one number to an empty array, need to make it work for multiple (overload?)
+        //Initialize items array
+        public CustomList()
         {
+            count = 0;
             capacity = 4;
-            //count = 0;
-            
             items = new T[capacity];
-            T[] addingArray = new T[capacity];
+        }
 
-            if (count >= capacity) //Just because I can't imagine a way count could be bigger than capacity doesn't mean I shouldn't account for the possibility
+        //Add
+        public void Add(T itemToAdd) //This works for adding one number to an empty array at a time, need to make it work for multiple (overload?)
+        {
+            if (count >= capacity - 1)
             {
                 IncreaseCapacity(capacity);
             }
-
-            for (int i = 0; i < count; i++)
-            {
-                addingArray[i] = items[i];
-                i++;
-            }
-
+            items[count] = itemToAdd;
             count++;
-            addingArray[count - 1] = itemToAdd;
-            items = addingArray;
-            return items;
         }
 
         //Increase capacity
-        public void IncreaseCapacity(int capacity)
+        public int IncreaseCapacity(int capacity)
         {
-            capacity = capacity * 2;
+            capacity = count + 1;
+            T[] newArray = new T[capacity];
+
+            for (int i = 0; i < items.Length; i++)
+            {
+                newArray[i] = items[i];
+            }
+            items = newArray;
+            return capacity;
         }
+
+        //ADDS TWO LISTS TOGETHER
+        public static CustomList<T> operator + (CustomList<T> list1, CustomList<T> list2) //Overload plus operator???
+        {
+            CustomList<T> list3 = new CustomList<T>();
+            if (list1 != null && list2 != null)
+            {
+                for (int i = 0; i < list2.count; i++)
+                {
+                    list3.Add(list1.items[i]);
+                }
+                for (int i = 0; i < list2.count; i++)
+                {
+                    list3.Add(list2.items[i]);
+                }
+            }
+            return list3;
+        }
+
+        //Overload++
+        //public static CustomList<T> operator +(CustomList<T> list1, CustomList<T> list2) //Overload plus operator
+        //{
+        //    if (list1 != null && list2 != null)
+        //    {
+        //        for (int i = 0; i < list2.count; i++)
+        //        {
+        //            list1.Add(list2.items[i]);
+        //        }
+        //    }
+        //    return list1;
+        //}
 
         //Remove
         public bool Remove(T itemToRemove)
@@ -63,37 +100,16 @@ namespace CustomList
                 if (items[i].Equals(itemToRemove))
                 {
                     items[i] = items[i + 1];
+                    i++;
+                    count--;
+                    for (int j = i; j < count; j++)
+                    {
+                        items[j] = items[j + 1];
+                    }
                     removed = true;
                 }
             }
             return removed;
-        }
-
-        //Iterable
-
-        //To String
-        public override string ToString() // TODO: need arguments/parameters
-        {
-            string result = items[0].ToString();
-
-            for (int i = 1; i < count; i++)
-            {
-                result = result + " " + items[i].ToString();
-            }
-            return result;
-        }
-
-        //Overload++
-        public static CustomList<T> operator +(CustomList<T> list1, CustomList<T> list2) //Overload plus operator
-        {
-            if (list1 != null && list2 != null)
-            {
-                for (int i = 0; i < list2.count; i++)
-                {
-                    list1.Add(list2.items[i]);
-                }
-            }
-            return list1;
         }
 
         //Overload--
@@ -109,10 +125,29 @@ namespace CustomList
             return list1;
         }
 
-        //Count
-        public int Count
+        //Iterable
+        public void Iterate(T item)
         {
-            get { return count; }
+            for (int i = 0; i < count; i++)
+            {
+                if (items[i].Equals(item))
+                {
+                    Console.WriteLine($"{item} was found."); ;
+                }
+                Console.WriteLine($"{item} was not found.");
+            }
+        }
+
+        //To String
+        public override string ToString() 
+        {
+            string result = items[0].ToString();
+
+            for (int i = 1; i < count; i++)
+            {
+                result = result + " " + items[i].ToString();
+            }
+            return result;
         }
 
         //Zipper
@@ -122,7 +157,7 @@ namespace CustomList
             {
                 for (int i = 0; i < list1.count; i++)
                 {
-                    list1.Add(list1.ElementAt(i));
+                    list1.Add(list1.ElementAt(i)); // Fix - can't use built in .ElementAt
                     list2.Add(list2.ElementAt(i));
                 }
             }
