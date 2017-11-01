@@ -151,24 +151,34 @@ namespace CustomList
         }
 
         //Zipper
-        public void Zipper(CustomList<T> list1, CustomList<T> list2)
+        public CustomList<T> Zipper(CustomList<T> list1, CustomList<T> list2)
         {
+            CustomList<T> zipped = new CustomList<T>();
             if (list1.count <= list2.count)
             {
                 for (int i = 0; i < list1.count; i++)
                 {
-                    list1.Add(list1.ElementAt(i)); // Fix - can't use built in .ElementAt
-                    list2.Add(list2.ElementAt(i));
+                    list1.Add(list1[i]); 
+                    list2.Add(list2[i]);
+                }
+                for (int j = zipped.count - 1; j < list2.count; j++)
+                {
+                    zipped.Add(list2[j]);
                 }
             }
             else
             {
                 for (int i = 0; i < list2.count; i++)
                 {
-                    list1.Add(list1.ElementAt(i));
-                    list2.Add(list2.ElementAt(i));
+                    list1.Add(list1[i]);
+                    list2.Add(list2[i]);
+                }
+                for (int j = zipped.count - 1; j <= list1.count; j++)
+                {
+                    zipped.Add(list1[j]);
                 }
             }
+            return zipped;
         }
         
         public IEnumerator<T> GetEnumerator()
